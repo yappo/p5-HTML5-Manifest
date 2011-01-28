@@ -5,7 +5,8 @@ readme_from 'lib/HTML5/Manifest.pm';
 readme_markdown_from 'lib/HTML5/Manifest.pm';
 githubmeta;
 
-# requires '';
+requires 'Digest::MD5';
+requires 'File::Spec';
 
 tests 't/*.t';
 author_tests 'xt';
