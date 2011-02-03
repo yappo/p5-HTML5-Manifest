@@ -80,27 +80,27 @@ HTML5::Manifest - HTML5 application cache manifest file generator
 
 =head1 SYNOPSIS
 
-  use HTML5::Manifest;
-
-  my $manifest = HTML5::Manifest->new(
-      use_digest => 1,
-      htdocs     => './htdocs/',
-      skip       => [
-          qr{^temporary/},
-          qr{\.svn/},
-          qr{\.swp$},
-          qr{\.txt$},
-          qr{\.html$},
-          qr{\.cgi$},
-      ],
-      network => [
-          '/api',
-          '/foo/bar.cgi',
-      ],
-  );
-
-  # show html5.manifest content
-  say $manifest->generate;
+    use HTML5::Manifest;
+    
+    my $manifest = HTML5::Manifest->new(
+        use_digest => 1,
+        htdocs     => './htdocs/',
+        skip       => [
+            qr{^temporary/},
+            qr{\.svn/},
+            qr{\.swp$},
+            qr{\.txt$},
+            qr{\.html$},
+            qr{\.cgi$},
+        ],
+        network => [
+            '/api',
+            '/foo/bar.cgi',
+        ],
+    );
+    
+    # show html5.manifest content
+    say $manifest->generate;
 
 =head1 DESCRIPTION
 
