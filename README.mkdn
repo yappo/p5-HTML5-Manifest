@@ -38,19 +38,21 @@ HTML5::Manifest is generate manifest contents of application cache in HTML5 Web 
 
 create HTML5::Manifest instance.
 
-### $args{htdocs}
+_%args_ are:
+
+- `htdocs => $htdocs_path`
 
 root directory of a file included to manifest is specified.
 
-### $args{skip}
+- `skip => \@skip_pattern_list`
 
 The file pattern excepted from `$args{htdocs}` is described. It is the same work as `MANIFEST.SKIP`.
 
-### $args{network}
+- `network => \@network_list`
 
 NETWORK: URL specified as section is specified in manifest file.
 
-### $args{use_digest}
+- `use_digest => $boolean`
 
 md5 checksum is created from all the contents of the file included in cache, and it writes in manifest file.
 This is useful to updating detection of manifest file.

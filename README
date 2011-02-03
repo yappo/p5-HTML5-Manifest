@@ -32,20 +32,22 @@ METHOD
   new(%args)
     create HTML5::Manifest instance.
 
-   $args{htdocs}
-    root directory of a file included to manifest is specified.
+    *%args* are:
 
-   $args{skip}
-    The file pattern excepted from $args{htdocs} is described. It is the
-    same work as "MANIFEST.SKIP".
+    "htdocs => $htdocs_path"
+        root directory of a file included to manifest is specified.
 
-   $args{network}
-    NETWORK: URL specified as section is specified in manifest file.
+    "skip => \@skip_pattern_list"
+        The file pattern excepted from $args{htdocs} is described. It is the
+        same work as "MANIFEST.SKIP".
 
-   $args{use_digest}
-    md5 checksum is created from all the contents of the file included in
-    cache, and it writes in manifest file. This is useful to updating
-    detection of manifest file.
+    "network => \@network_list"
+        NETWORK: URL specified as section is specified in manifest file.
+
+    "use_digest => $boolean"
+        md5 checksum is created from all the contents of the file included
+        in cache, and it writes in manifest file. This is useful to updating
+        detection of manifest file.
 
   generate()
     generate to html5 application cache manifest file.
