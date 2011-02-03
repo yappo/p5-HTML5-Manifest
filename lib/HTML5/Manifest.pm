@@ -106,6 +106,33 @@ HTML5::Manifest - HTML5 application cache manifest file generator
 
 HTML5::Manifest is generate manifest contents of application cache in HTML5 Web application API.
 
+=head1 METHOD
+
+=head2 new(%args)
+
+create HTML5::Manifest instance.
+
+=head3 $args{htdocs}
+
+root directory of a file included to manifest is specified.
+
+=head3 $args{skip}
+
+The file pattern excepted from C<$args{htdocs}> is described. It is the same work as C<MANIFEST.SKIP>.
+
+=head3 $args{network}
+
+NETWORK: URL specified as section is specified in manifest file.
+
+=head3 $args{use_digest}
+
+md5 checksum is created from all the contents of the file included in cache, and it writes in manifest file.
+This is useful to updating detection of manifest file.
+
+=head2 generate()
+
+generate to html5 application cache manifest file.
+
 =head1 AUTHOR
 
 Kazuhiro Osawa E<lt>yappo {at} shibuya {dot} plE<gt>
