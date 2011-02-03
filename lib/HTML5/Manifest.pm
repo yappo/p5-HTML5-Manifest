@@ -3,7 +3,7 @@ use strict;
 use warnings;
 our $VERSION = '0.01';
 
-use Digest::MD5 'md5_base64';
+use Digest::MD5;
 use File::Spec;
 use IO::Dir;
 
@@ -43,6 +43,9 @@ sub generate {
         $manifest .= "\n";
     }
 
+    my $md5;
+    $md5 = Digest::MD5->new if $self->{use_digest};
+
     my $htdocs = $self->{htdocs};
     $manifest .= "CACHE:\n";
     $self->_recurse($htdocs, sub {
@@ -57,15 +60,13 @@ sub generate {
 
         $manifest .= $manifest_path;
         if ($self->{use_digest}) {
-            $manifest .= ' # ' . md5_base64(do {
-                open my $fh, '<', $fullpath or die "Can't open file $fullpath: $!";
-                local $/;
-                <$fh>;
-            });
+            open my $fh, '<', $fullpath or die "Can't open file $fullpath: $!";
+            $md5->addfile($fh);
         }
         $manifest .= "\n";
         return 1;
     });
+    $manifest .= "\n# digest: " . $md5->b64digest . "\n" if $self->{use_digest};
 
     return $manifest;
 }

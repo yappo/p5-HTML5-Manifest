@@ -30,9 +30,11 @@ NETWORK:
 /foo/bar.cgi
 
 CACHE:
-/cache.js # jiZQbWYliAHo6Fqj2gl6vQ
-/css/site.css # mwBiqRYWUflZ11t1PooKvA
-/dispatcher.js # BPDIRbL4Ld7J0CgoydHCXA
+/cache.js
+/css/site.css
+/dispatcher.js
+
+# digest: JYcyuHljtQxhQLUcYJ6MTw
 MANIFEST
 
 done_testing;
