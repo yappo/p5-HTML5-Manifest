@@ -1,7 +1,7 @@
 package HTML5::Manifest;
 use strict;
 use warnings;
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use Digest::MD5;
 use File::Spec;

@@ -1,4 +1,7 @@
 Revision history for Perl extension HTML5::Manifest
 
+0.02    2011-02-03T21:07:04+09:00
+        - rewrite document pod format
+
 0.01    2011-02-03T19:21:20+09:00
         - original version
