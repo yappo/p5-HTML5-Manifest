@@ -18,8 +18,12 @@ sub _recurse {
     my($self, $path, $cb) = @_;
 
     my $dir = IO::Dir->new($path) or die "Can't open directory $path: $!";
+    my @list;
     while (defined(my $entry = $dir->read)) {
         next if $entry eq File::Spec->updir || $entry eq File::Spec->curdir;
+        push @list, $entry;
+    }
+    for my $entry (sort @list) {
         my $new_path = File::Spec->catfile($path, $entry);
         my $is_dir = -d $new_path;
         $entry = "$entry/" if $is_dir;
