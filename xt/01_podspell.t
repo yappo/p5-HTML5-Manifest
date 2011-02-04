@@ -9,3 +9,6 @@ Kazuhiro Osawa
 yappo {at} shibuya {dot} pl
 HTML5::Manifest
 API
+checksum
+html
+md
