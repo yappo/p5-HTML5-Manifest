@@ -51,10 +51,12 @@ sub generate {
     $md5 = Digest::MD5->new if $self->{use_digest};
 
     my $htdocs = $self->{htdocs};
+    $htdocs =~ s!\\!/!g if $^O eq 'MSWin32';
     $manifest .= "CACHE:\n";
     $self->_recurse($htdocs, sub {
         my($fullpath, $filename, $is_dir) = @_;
         my $manifest_path = $fullpath;
+        $manifest_path =~ s!\\!/!g if $^O eq 'MSWin32';
         $manifest_path =~ s/^$htdocs//;
 
         for my $qr (@{ $self->{skip} || [] }) {
